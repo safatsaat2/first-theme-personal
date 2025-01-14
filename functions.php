@@ -17,7 +17,7 @@ function enqueue_custom_fonts() {
     // Enqueue Google Fonts
     wp_enqueue_style(
         'custom-google-fonts', // Handle for the stylesheet
-        'https://fonts.googleapis.com/css2?family=Lilita+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap', // URL for the font
+        'https://fonts.googleapis.com/css2?family=Lilita+One&family=Monoton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap', // URL for the font
         array(), // Dependencies (none in this case)
         null // No versioning, loaded as is
     );
