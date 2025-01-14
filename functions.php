@@ -13,6 +13,17 @@ function srs_e_food_theme_setup() {
 add_action('after_setup_theme', 'srs_e_food_theme_setup');
 
 // Enqueue styles and scripts.
+function enqueue_custom_fonts() {
+    // Enqueue Google Fonts
+    wp_enqueue_style(
+        'custom-google-fonts', // Handle for the stylesheet
+        'https://fonts.googleapis.com/css2?family=Lilita+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap', // URL for the font
+        array(), // Dependencies (none in this case)
+        null // No versioning, loaded as is
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
+
 function srs_e_food_enqueue_scripts() {
     // Enqueue styles.
     wp_enqueue_style(
