@@ -1,0 +1,283 @@
+<?php
+
+// Register Custom Post Type for Restaurants
+function register_restaurant_cpt() {
+    $labels = array(
+        'name'               => 'Restaurants',
+        'singular_name'      => 'Restaurant',
+        'menu_name'          => 'Restaurants',
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Restaurant',
+        'edit_item'          => 'Edit Restaurant',
+        'new_item'           => 'New Restaurant',
+        'view_item'          => 'View Restaurant',
+        'all_items'          => 'All Restaurants',
+        'search_items'       => 'Search Restaurants',
+        'not_found'          => 'No restaurants found.',
+        'not_found_in_trash' => 'No restaurants found in Trash.',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'rewrite'            => array('slug' => 'restaurants'),
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+        'menu_icon'          => 'dashicons-store', // Icon for the admin menu
+    );
+
+    register_post_type('restaurant', $args);
+}
+add_action('init', 'register_restaurant_cpt');
+
+// Register Cuisine Taxonomy
+function register_cuisine_taxonomy() {
+    $labels = array(
+        'name'              => 'Cuisines',
+        'singular_name'     => 'Cuisine',
+        'search_items'      => 'Search Cuisines',
+        'all_items'         => 'All Cuisines',
+        'edit_item'         => 'Edit Cuisine',
+        'update_item'       => 'Update Cuisine',
+        'add_new_item'      => 'Add New Cuisine',
+        'new_item_name'     => 'New Cuisine Name',
+        'menu_name'         => 'Cuisines',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'rewrite'           => array('slug' => 'cuisine'),
+    );
+
+    register_taxonomy('cuisine', array('restaurant'), $args);
+}
+add_action('init', 'register_cuisine_taxonomy');
+
+// Add image upload field to cuisine taxonomy
+function add_cuisine_image_field($term = null) {
+    $term_id = is_object($term) ? $term->term_id : '';
+    $image_url = $term_id ? get_term_meta($term_id, 'cuisine_image', true) : '';
+?>
+    <div class="form-field term-image-wrap">
+        <label for="cuisine-image">Cuisine Image</label>
+        <input type="text" id="cuisine-image" name="cuisine_image" value="<?php echo esc_attr($image_url); ?>" />
+        <button class="button cuisine-image-upload-button" type="button">Upload Image</button>
+        <div class="cuisine-image-preview">
+            <?php if ($image_url) : ?>
+                <img src="<?php echo esc_url($image_url); ?>" style="max-width: 100px;" />
+            <?php endif; ?>
+        </div>
+    </div>
+<?php
+}
+
+// Hooks for adding and editing terms
+add_action('cuisine_add_form_fields', 'add_cuisine_image_field', 10, 2);
+add_action('cuisine_edit_form_fields', 'add_cuisine_image_field', 10, 2);
+
+// Save cuisine image URL
+function save_cuisine_image_field($term_id) {
+    if (isset($_POST['cuisine_image'])) {
+        update_term_meta($term_id, 'cuisine_image', esc_url($_POST['cuisine_image']));
+    }
+}
+add_action('created_cuisine', 'save_cuisine_image_field');
+add_action('edited_cuisine', 'save_cuisine_image_field');
+
+// Enqueue media uploader scripts
+function enqueue_cuisine_image_uploader($hook) {
+    if ('edit-tags.php' === $hook || 'term.php' === $hook) {
+        wp_enqueue_media();
+        wp_enqueue_script('cuisine-image-uploader', get_template_directory_uri() . '/assets/js/cuisine-image-uploader.js', array(), null, true);
+    }
+}
+add_action('admin_enqueue_scripts', 'enqueue_cuisine_image_uploader');
+
+
+// Add Meta Box for Restaurant Details
+function restaurant_meta_box() {
+    add_meta_box(
+        'restaurant_details',            // Meta box ID
+        'Restaurant Details',            // Title
+        'restaurant_meta_box_callback',  // Callback function
+        'restaurant',                    // Custom post type
+        'normal',                        // Position
+        'high'                           // Priority
+    );
+}
+add_action('add_meta_boxes', 'restaurant_meta_box');
+
+// Meta Box Callback for Restaurant Details
+function restaurant_meta_box_callback($post) {
+    wp_nonce_field('restaurant_meta_box', 'restaurant_meta_box_nonce');
+
+    // Get existing values
+    $restaurant_name = get_post_meta($post->ID, '_restaurant_name', true);
+    $description = get_post_meta($post->ID, '_restaurant_description', true);
+    $location = get_post_meta($post->ID, '_restaurant_location', true);
+    $email = get_post_meta($post->ID, '_restaurant_email', true);
+    $phone = get_post_meta($post->ID, '_restaurant_phone', true);
+
+    // Display the fields
+?>
+    <p>
+        <label for="restaurant_name">Restaurant Name</label>
+        <input type="text" name="restaurant_name" id="restaurant_name" value="<?php echo esc_attr($restaurant_name); ?>" class="widefat" />
+    </p>
+    <p>
+        <label for="restaurant_description">Description</label>
+        <textarea name="restaurant_description" id="restaurant_description" class="widefat"><?php echo esc_textarea($description); ?></textarea>
+    </p>
+    <p>
+        <label for="restaurant_location">Location</label>
+        <input type="text" name="restaurant_location" id="restaurant_location" value="<?php echo esc_attr($location); ?>" class="widefat" />
+    </p>
+    <p>
+        <label for="restaurant_email">Email</label>
+        <input type="email" name="restaurant_email" id="restaurant_email" value="<?php echo esc_attr($email); ?>" class="widefat" />
+    </p>
+    <p>
+        <label for="restaurant_phone">Phone</label>
+        <input type="text" name="restaurant_phone" id="restaurant_phone" value="<?php echo esc_attr($phone); ?>" class="widefat" />
+    </p>
+<?php
+}
+
+// Save Restaurant Details
+function save_restaurant_meta($post_id) {
+    if (!isset($_POST['restaurant_meta_box_nonce'])) {
+        return;
+    }
+    if (!wp_verify_nonce($_POST['restaurant_meta_box_nonce'], 'restaurant_meta_box')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    // Save restaurant meta fields
+    if (isset($_POST['restaurant_name'])) {
+        update_post_meta($post_id, '_restaurant_name', sanitize_text_field($_POST['restaurant_name']));
+    }
+    if (isset($_POST['restaurant_description'])) {
+        update_post_meta($post_id, '_restaurant_description', sanitize_textarea_field($_POST['restaurant_description']));
+    }
+    if (isset($_POST['restaurant_location'])) {
+        update_post_meta($post_id, '_restaurant_location', sanitize_text_field($_POST['restaurant_location']));
+    }
+    if (isset($_POST['restaurant_email'])) {
+        update_post_meta($post_id, '_restaurant_email', sanitize_email($_POST['restaurant_email']));
+    }
+    if (isset($_POST['restaurant_phone'])) {
+        update_post_meta($post_id, '_restaurant_phone', sanitize_text_field($_POST['restaurant_phone']));
+    }
+}
+add_action('save_post', 'save_restaurant_meta');
+
+
+// Add Meta Box for Menu Items
+function menu_item_meta_box() {
+    add_meta_box(
+        'menu_items',            // Meta box ID
+        'Menu Items',            // Title
+        'menu_item_meta_box_callback', // Callback function
+        'restaurant',            // Custom post type
+        'normal',                // Position
+        'high'                   // Priority
+    );
+}
+add_action('add_meta_boxes', 'menu_item_meta_box');
+
+// Menu Item Meta Box Callback
+function menu_item_meta_box_callback($post) {
+    wp_nonce_field('menu_item_meta_box', 'menu_item_meta_box_nonce');
+
+    // Get existing menu items
+    $menu_items = get_post_meta($post->ID, '_menu_items', true);
+    if (!$menu_items) {
+        $menu_items = array();
+    }
+
+    // Display menu items or an empty message
+?>
+    <div id="menu-items-container">
+        <?php if (!empty($menu_items)) : ?>
+            <?php foreach ($menu_items as $index => $menu_item) : ?>
+                <div class="menu-item" id="menu-item-<?php echo $index; ?>">
+                    <p>
+                        <label for="menu_item_name_<?php echo $index; ?>">Item Name</label>
+                        <input type="text" name="menu_item_name[]" id="menu_item_name_<?php echo $index; ?>" value="<?php echo esc_attr($menu_item['name']); ?>" class="widefat" />
+                    </p>
+                    <p>
+                        <label for="menu_item_description_<?php echo $index; ?>">Description</label>
+                        <textarea name="menu_item_description[]" id="menu_item_description_<?php echo $index; ?>" class="widefat"><?php echo esc_textarea($menu_item['description']); ?></textarea>
+                    </p>
+                    <p>
+                        <label for="menu_item_price_<?php echo $index; ?>">Price</label>
+                        <input type="text" name="menu_item_price[]" id="menu_item_price_<?php echo $index; ?>" value="<?php echo esc_attr($menu_item['price']); ?>" class="widefat" />
+                    </p>
+                    <button type="button" class="remove-menu-item button">Remove Item</button>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+    <button type="button" id="add-menu-item" class="button">Add Menu Item</button>
+
+    <script type="text/javascript">
+        (function($) {
+            let menuItemIndex = <?php echo count($menu_items); ?>;
+
+            $('#add-menu-item').on('click', function() {
+                const newItemHTML = `
+                    <div class="menu-item" id="menu-item-${menuItemIndex}">
+                        <p><label for="menu_item_name_${menuItemIndex}">Item Name</label>
+                        <input type="text" name="menu_item_name[]" id="menu_item_name_${menuItemIndex}" class="widefat" /></p>
+                        <p><label for="menu_item_description_${menuItemIndex}">Description</label>
+                        <textarea name="menu_item_description[]" id="menu_item_description_${menuItemIndex}" class="widefat"></textarea></p>
+                        <p><label for="menu_item_price_${menuItemIndex}">Price</label>
+                        <input type="text" name="menu_item_price[]" id="menu_item_price_${menuItemIndex}" class="widefat" /></p>
+                        <button type="button" class="remove-menu-item button">Remove Item</button>
+                    </div>
+                `;
+                $('#menu-items-container').append(newItemHTML);
+                menuItemIndex++;
+            });
+
+            $('body').on('click', '.remove-menu-item', function() {
+                $(this).closest('.menu-item').remove();
+            });
+        })(jQuery);
+    </script>
+<?php
+}
+
+// Save Menu Items Meta
+function save_menu_items_meta($post_id) {
+    if (!isset($_POST['menu_item_meta_box_nonce']) || !wp_verify_nonce($_POST['menu_item_meta_box_nonce'], 'menu_item_meta_box')) {
+        return;
+    }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (isset($_POST['menu_item_name'])) {
+        $menu_items = array();
+        $menu_item_names = $_POST['menu_item_name'];
+        $menu_item_descriptions = $_POST['menu_item_description'];
+        $menu_item_prices = $_POST['menu_item_price'];
+
+        foreach ($menu_item_names as $index => $name) {
+            $menu_items[] = array(
+                'name' => sanitize_text_field($name),
+                'description' => sanitize_textarea_field($menu_item_descriptions[$index]),
+                'price' => sanitize_text_field($menu_item_prices[$index])
+            );
+        }
+
+        update_post_meta($post_id, '_menu_items', $menu_items);
+    }
+}
+add_action('save_post', 'save_menu_items_meta');
