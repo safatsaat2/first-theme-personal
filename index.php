@@ -3,6 +3,13 @@ get_header();
 ?>
 
 <style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+    }
+    p,h1,h2,h3,h4,h5,h6{
+        margin: 0;
+    }
     .secondary-btn {
         height: 55px;
         padding: 0 15px;
@@ -330,6 +337,38 @@ get_header();
 </div>
 <!-- More Expectation Section ends -->
 
+<!-- Like Today Section starts -->
+
+<style>
+
+</style>
+<div class="sef-like-today">
+    <div class="sef-container">
+        <div class="sef-heading-area">
+            <div class="left-area">
+                <h2 class="sef-heading">What do you like today?</h2>
+                <p class="sef-heading">Consectetur numquam poro nemo veniam
+                eligendi rem adipisci quo modi.</p>
+            </div>
+            <div class="right-area">
+                <a href="#" class="primary-btn">Go Order Now</a>
+            </div>
+        </div>
+        <div class="sef-menu-area">
+            <div class="menu-utem-box">
+                <div class="img-wrapper">
+                    <img src="#" alt="" class="img-class">
+                </div>
+                <div class="item-text">
+                    <h4>Starters</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Like Today Section ends -->
 
 <?php
 get_footer();
