@@ -355,7 +355,34 @@ get_header();
             </div>
         </div>
         <div class="sef-menu-area">
-            <div class="menu-utem-box">
+            <div class="menu-item-box">
+                <div class="img-wrapper">
+                    <img src="#" alt="" class="img-class">
+                </div>
+                <div class="item-text">
+                    <h4>Starters</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+            </div>
+            <div class="menu-item-box">
+                <div class="img-wrapper">
+                    <img src="#" alt="" class="img-class">
+                </div>
+                <div class="item-text">
+                    <h4>Starters</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+            </div>
+            <div class="menu-item-box">
+                <div class="img-wrapper">
+                    <img src="#" alt="" class="img-class">
+                </div>
+                <div class="item-text">
+                    <h4>Starters</h4>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                </div>
+            </div>
+            <div class="menu-item-box">
                 <div class="img-wrapper">
                     <img src="#" alt="" class="img-class">
                 </div>
