@@ -348,7 +348,9 @@ get_header();
 <!-- Like Today Section starts -->
 
 <style>
-    .sef-like-today {}
+    .sef-like-today {
+        padding: 60px;
+    }
 
     .sef-like-today .sef-container {
         max-width: 1200px;
