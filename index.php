@@ -3,13 +3,21 @@ get_header();
 ?>
 
 <style>
-    *{
+    * {
         box-sizing: border-box;
         margin: 0;
     }
-    p,h1,h2,h3,h4,h5,h6{
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         margin: 0;
     }
+
     .secondary-btn {
         height: 55px;
         padding: 0 15px;
@@ -137,7 +145,7 @@ get_header();
         background: #f9fafc;
     }
 
-    .sef-container {
+    .sef-ex-section .sef-container {
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
@@ -145,18 +153,18 @@ get_header();
         justify-content: center;
     }
 
-    .sef-container .left-section {
+    .sef-ex-section .sef-container .left-section {
         width: 50%;
     }
 
-    .sef-container .left-section .pr-com-ele {
+    .sef-ex-section .sef-container .left-section .pr-com-ele {
         margin-bottom: 90px;
         position: relative;
         padding-bottom: 120%;
         width: 100%;
     }
 
-    .sef-container .left-section .pr-com-ele .img-parent {
+    .sef-ex-section .sef-container .left-section .pr-com-ele .img-parent {
         position: absolute;
         overflow: hidden;
         z-index: 2;
@@ -167,7 +175,7 @@ get_header();
         box-shadow: 0 6px 8px -6px rgba(0, 0, 0, .1);
     }
 
-    .sef-container .left-section .pr-com-ele .img-parent img {
+    .sef-ex-section .sef-container .left-section .pr-com-ele .img-parent img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -175,7 +183,7 @@ get_header();
         animation: zoom 30s ease-in-out infinite;
     }
 
-    .sef-container .left-section .pr-com-ele .sef-experience {
+    .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience {
         background-color: #fff;
         position: absolute;
         z-index: 3;
@@ -186,14 +194,14 @@ get_header();
         box-shadow: 6px 6px 8px -6px rgba(0, 0, 0, .1);
     }
 
-    .sef-container .left-section .pr-com-ele .sef-experience div {
+    .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience div {
         padding: 15px;
         text-align: center;
         border: 3px dotted #f2f3f5;
 
     }
 
-    .sef-container .left-section .pr-com-ele .sef-experience .number {
+    .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience .number {
         font-weight: 500;
         font-family: "Monoton", sans-serif;
         line-height: 100%;
@@ -204,7 +212,7 @@ get_header();
         color: #231e41;
     }
 
-    .sef-container .left-section .pr-com-ele .sef-experience .year {
+    .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience .year {
         line-height: 120%;
         font-size: 22px;
         letter-spacing: -1px;
@@ -214,12 +222,12 @@ get_header();
         font-family: "Rubik", sans-serif;
     }
 
-    .sef-container .right-section {
+    .sef-ex-section .sef-container .right-section {
         max-width: 50%;
         width: 100%;
     }
 
-    .sef-container .right-section .heading {
+    .sef-ex-section .sef-container .right-section .heading {
         font-weight: 600;
         margin: 0;
         padding: 0;
@@ -229,19 +237,19 @@ get_header();
         margin-bottom: 60px;
     }
 
-    .sef-container .right-section .sef-features {
+    .sef-ex-section .sef-container .right-section .sef-features {
         display: flex;
         flex-direction: column;
         gap: 60px;
     }
 
-    .sef-container .right-section .sef-features .features-item {
+    .sef-ex-section .sef-container .right-section .sef-features .features-item {
         display: flex;
         position: relative;
         z-index: 2;
     }
 
-    .sef-container .right-section .sef-features .features-item .number {
+    .sef-ex-section .sef-container .right-section .sef-features .features-item .number {
         min-width: 62px;
         margin-right: 30px;
         font-family: "Monoton", sans-serif;
@@ -250,20 +258,20 @@ get_header();
         line-height: 36px;
     }
 
-    .sef-container .right-section .sef-features .features-item .feature-details {
+    .sef-ex-section .sef-container .right-section .sef-features .features-item .feature-details {
         display: flex;
         flex-direction: column;
         gap: 15px;
     }
 
-    .sef-container .right-section .sef-features .features-item .feature-details h6 {
+    .sef-ex-section .sef-container .right-section .sef-features .features-item .feature-details h6 {
         line-height: 120%;
         font-size: 22px;
         letter-spacing: -1px;
         margin: 0;
     }
 
-    .sef-container .right-section .sef-features .features-item .feature-details p {
+    .sef-ex-section .sef-container .right-section .sef-features .features-item .feature-details p {
         color: #6f6f87;
         margin: 0;
         font-size: 15px;
@@ -340,7 +348,85 @@ get_header();
 <!-- Like Today Section starts -->
 
 <style>
+    .sef-like-today {}
 
+    .sef-like-today .sef-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .sef-like-today .sef-heading-area {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sef-like-today .sef-heading-area .left-area {}
+
+    .sef-like-today .sef-heading-area .left-area h2 {
+        font-family: "Rubik", sans-serif;
+        font-size: 40px;
+        line-height: 110%;
+        color: #231e41;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .sef-like-today .sef-heading-area .left-area p {
+        font-family: "Rubik", sans-serif;
+        font-size: 15px;
+        line-height: 150%;
+        color: #6f6f87;
+        font-weight: 500;
+        max-width: 350px;
+    }
+
+    .sef-like-today .sef-heading-area .right-area {}
+
+    .sef-like-today .sef-heading-area .right-area .primary-btn {}
+
+    .sef-like-today .sef-menu-area {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .sef-like-today .sef-menu-area .menu-item-box {
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        background: #f9fafc;
+    }
+
+    .sef-like-today .sef-menu-area .menu-item-box:hover {}
+
+    .sef-like-today .sef-menu-area .menu-item-box .img-wrapper {
+        max-width: 70px;
+    }
+
+    .sef-like-today .sef-menu-area .menu-item-box .img-wrapper img {
+        width: 100%;
+    }
+
+    .sef-like-today .sef-menu-area .menu-item-box .item-text {}
+
+    .sef-like-today .sef-menu-area .menu-item-box .item-text h4 {
+        font-family: "Rubik", sans-serif;
+        font-size: 22px;
+        line-height: 120%;
+        color: #231e41;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    .sef-like-today .sef-menu-area .menu-item-box .item-text p {
+        font-family: "Rubik", sans-serif;
+        font-size: 15px;
+        color: #6f6f87;
+        font-weight: 400;
+    }
 </style>
 <div class="sef-like-today">
     <div class="sef-container">
@@ -348,7 +434,7 @@ get_header();
             <div class="left-area">
                 <h2 class="sef-heading">What do you like today?</h2>
                 <p class="sef-heading">Consectetur numquam poro nemo veniam
-                eligendi rem adipisci quo modi.</p>
+                    eligendi rem adipisci quo modi.</p>
             </div>
             <div class="right-area">
                 <a href="#" class="primary-btn">Go Order Now</a>
@@ -357,7 +443,7 @@ get_header();
         <div class="sef-menu-area">
             <div class="menu-item-box">
                 <div class="img-wrapper">
-                    <img src="#" alt="" class="img-class">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-icon.png'; ?>" alt="" class="img-class">
                 </div>
                 <div class="item-text">
                     <h4>Starters</h4>
@@ -366,7 +452,7 @@ get_header();
             </div>
             <div class="menu-item-box">
                 <div class="img-wrapper">
-                    <img src="#" alt="" class="img-class">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-icon.png'; ?>" alt="" class="img-class">
                 </div>
                 <div class="item-text">
                     <h4>Starters</h4>
@@ -375,7 +461,7 @@ get_header();
             </div>
             <div class="menu-item-box">
                 <div class="img-wrapper">
-                    <img src="#" alt="" class="img-class">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-icon.png'; ?>" alt="" class="img-class">
                 </div>
                 <div class="item-text">
                     <h4>Starters</h4>
@@ -384,7 +470,7 @@ get_header();
             </div>
             <div class="menu-item-box">
                 <div class="img-wrapper">
-                    <img src="#" alt="" class="img-class">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-icon.png'; ?>" alt="" class="img-class">
                 </div>
                 <div class="item-text">
                     <h4>Starters</h4>
@@ -396,6 +482,115 @@ get_header();
 </div>
 
 <!-- Like Today Section ends -->
+
+<style>
+    .sef-popular-dishes .sef-container{
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .sef-popular-dishes .sef-heading-area {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sef-popular-dishes .sef-heading-area .left-area {}
+
+    .sef-popular-dishes .sef-heading-area .left-area h2 {
+        font-family: "Rubik", sans-serif;
+        font-size: 40px;
+        line-height: 110%;
+        color: #231e41;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .sef-popular-dishes .sef-heading-area .left-area p {
+        font-family: "Rubik", sans-serif;
+        font-size: 15px;
+        line-height: 150%;
+        color: #6f6f87;
+        font-weight: 500;
+        max-width: 350px;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 400px;
+    }
+
+</style>
+<div class="sef-popular-dishes">
+    <div class="sef-container">
+        <div class="sef-heading-area">
+            <div class="left-area">
+                <h2 class="sef-heading">Most Popular Dishes</h2>
+                <p class="sef-heading">Consectetur numquam poro nemo veniam
+                    eligendi rem adipisci quo modi.</p>
+            </div>
+            <div class="right-area">
+                <a href="#" class="primary-btn">Go Order Now</a>
+            </div>
+        </div>
+        <div class="sef-popular-slider">
+            <!-- Menu Item Slider starts -->
+            <div class="swiper-container sef-slider-parent">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <p>Slide 1 Caption</p>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <p>Slide 2 Caption</p>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <p>Slide 3 Caption</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next">ok</div>
+                <div class="swiper-button-prev">ok</div>
+
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiper = new Swiper('.swiper-container.sef-slider-parent', {
+            loop: true, // Enables infinite scrolling
+            autoplay: {
+                delay: 3000, // Autoplay delay in ms
+                disableOnInteraction: false, // Keeps autoplay running after interaction
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            slidesPerView: 1, // Number of slides visible at a time
+            spaceBetween: 10, // Space between slides in px
+        });
+    });
+</script>
+<!-- Menu Item Slider ends -->
 
 <?php
 get_footer();

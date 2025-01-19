@@ -48,3 +48,23 @@ add_action('wp_enqueue_scripts', 'srs_e_food_enqueue_scripts');
 if (file_exists(get_template_directory() . '/inc/custom-post-types.php')) {
     require_once get_template_directory() . '/inc/custom-post-types.php';
 }
+function enqueue_swiper_assets() {
+    // Enqueue Swiper CSS
+    wp_enqueue_style(
+        'swiper-css', // Handle name
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', // URL to the stylesheet
+        array(), // Dependencies
+        null // No version needed as CDN handles updates
+    );
+
+    // Enqueue Swiper JS
+    wp_enqueue_script(
+        'swiper-js', // Handle name
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', // URL to the script
+        array(), // Dependencies
+        null, // No version needed as CDN handles updates
+        true // Load in the footer
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
+
