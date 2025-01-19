@@ -571,187 +571,16 @@ get_header();
         </div>
         <div class="sef-popular-slider">
             <!-- Menu Item Slider starts -->
-            <div class="swiper-container sef-slider-parent">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div href="#" class="sef-item-card">
-                            <div class="sef-img-wrapper">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-img.jpg'; ?>" alt="item">
-                            </div>
-                            <div class="sef-text-wrapper">
-                                <h3>CHevrefrit au miel</h3>
-                                <p><span>$</span>15</p>
-                            </div>
-                            <div class="sef-content-wrapper">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolore explicabo molestias doloremque asperiores soluta ratione repellat</p>
-                                <div class="btn-rating-wrapper">
-                                    <div>
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.64062 13.125L4.65625 8.73438L1.25 5.78125L5.75 5.39062L7.5 1.25L9.25 5.39062L13.75 5.78125L10.3437 8.73438L11.3594 13.125L7.5 10.7969L3.64062 13.125Z" fill="#FFB147" />
-                                        </svg>
-                                        <span>(4.6 Star)</span>
-                                    </div>
-                                    <a href="#" class="primary-btn">order now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div href="#" class="sef-item-card">
-                            <div class="sef-img-wrapper">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-img.jpg'; ?>" alt="item">
-                            </div>
-                            <div class="sef-text-wrapper">
-                                <h3>CHevrefrit au miel</h3>
-                                <p><span>$</span>15</p>
-                            </div>
-                            <div class="sef-content-wrapper">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolore explicabo molestias doloremque asperiores soluta ratione repellat</p>
-                                <div class="btn-rating-wrapper">
-                                    <div>
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.64062 13.125L4.65625 8.73438L1.25 5.78125L5.75 5.39062L7.5 1.25L9.25 5.39062L13.75 5.78125L10.3437 8.73438L11.3594 13.125L7.5 10.7969L3.64062 13.125Z" fill="#FFB147" />
-                                        </svg>
-                                        <span>(4.6 Star)</span>
-                                    </div>
-                                    <a href="#" class="primary-btn">order now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div href="#" class="sef-item-card">
-                            <div class="sef-img-wrapper">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-img.jpg'; ?>" alt="item">
-                            </div>
-                            <div class="sef-text-wrapper">
-                                <h3>CHevrefrit au miel</h3>
-                                <p><span>$</span>15</p>
-                            </div>
-                            <div class="sef-content-wrapper">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolore explicabo molestias doloremque asperiores soluta ratione repellat</p>
-                                <div class="btn-rating-wrapper">
-                                    <div>
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.64062 13.125L4.65625 8.73438L1.25 5.78125L5.75 5.39062L7.5 1.25L9.25 5.39062L13.75 5.78125L10.3437 8.73438L11.3594 13.125L7.5 10.7969L3.64062 13.125Z" fill="#FFB147" />
-                                        </svg>
-                                        <span>(4.6 Star)</span>
-                                    </div>
-                                    <a href="#" class="primary-btn">order now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div href="#" class="sef-item-card">
-                            <div class="sef-img-wrapper">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-img.jpg'; ?>" alt="item">
-                            </div>
-                            <div class="sef-text-wrapper">
-                                <h3>CHevrefrit au miel</h3>
-                                <p><span>$</span>15</p>
-                            </div>
-                            <div class="sef-content-wrapper">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolore explicabo molestias doloremque asperiores soluta ratione repellat</p>
-                                <div class="btn-rating-wrapper">
-                                    <div>
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.64062 13.125L4.65625 8.73438L1.25 5.78125L5.75 5.39062L7.5 1.25L9.25 5.39062L13.75 5.78125L10.3437 8.73438L11.3594 13.125L7.5 10.7969L3.64062 13.125Z" fill="#FFB147" />
-                                        </svg>
-                                        <span>(4.6 Star)</span>
-                                    </div>
-                                    <a href="#" class="primary-btn">order now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div href="#" class="sef-item-card">
-                            <div class="sef-img-wrapper">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-img.jpg'; ?>" alt="item">
-                            </div>
-                            <div class="sef-text-wrapper">
-                                <h3>CHevrefrit au miel</h3>
-                                <p><span>$</span>15</p>
-                            </div>
-                            <div class="sef-content-wrapper">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolore explicabo molestias doloremque asperiores soluta ratione repellat</p>
-                                <div class="btn-rating-wrapper">
-                                    <div>
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.64062 13.125L4.65625 8.73438L1.25 5.78125L5.75 5.39062L7.5 1.25L9.25 5.39062L13.75 5.78125L10.3437 8.73438L11.3594 13.125L7.5 10.7969L3.64062 13.125Z" fill="#FFB147" />
-                                        </svg>
-                                        <span>(4.6 Star)</span>
-                                    </div>
-                                    <a href="#" class="primary-btn">order now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div href="#" class="sef-item-card">
-                            <div class="sef-img-wrapper">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-img.jpg'; ?>" alt="item">
-                            </div>
-                            <div class="sef-text-wrapper">
-                                <h3>CHevrefrit au miel</h3>
-                                <p><span>$</span>15</p>
-                            </div>
-                            <div class="sef-content-wrapper">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolore explicabo molestias doloremque asperiores soluta ratione repellat</p>
-                                <div class="btn-rating-wrapper">
-                                    <div>
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.64062 13.125L4.65625 8.73438L1.25 5.78125L5.75 5.39062L7.5 1.25L9.25 5.39062L13.75 5.78125L10.3437 8.73438L11.3594 13.125L7.5 10.7969L3.64062 13.125Z" fill="#FFB147" />
-                                        </svg>
-                                        <span>(4.6 Star)</span>
-                                    </div>
-                                    <a href="#" class="primary-btn">order now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div href="#" class="sef-item-card">
-                            <div class="sef-img-wrapper">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-img.jpg'; ?>" alt="item">
-                            </div>
-                            <div class="sef-text-wrapper">
-                                <h3>CHevrefrit au miel</h3>
-                                <p><span>$</span>15</p>
-                            </div>
-                            <div class="sef-content-wrapper">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolore explicabo molestias doloremque asperiores soluta ratione repellat</p>
-                                <div class="btn-rating-wrapper">
-                                    <div>
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.64062 13.125L4.65625 8.73438L1.25 5.78125L5.75 5.39062L7.5 1.25L9.25 5.39062L13.75 5.78125L10.3437 8.73438L11.3594 13.125L7.5 10.7969L3.64062 13.125Z" fill="#FFB147" />
-                                        </svg>
-                                        <span>(4.6 Star)</span>
-                                    </div>
-                                    <a href="#" class="primary-btn">order now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-
-
-                <div class="swiper-pagination"></div>
-            </div>
+            <?php
+            echo do_shortcode('[menu_slider post_id="42,41"]');
+            ?>
             <style>
                 .sef-item-card {
                     max-width: 270px;
                     margin: 0 auto;
                     display: block;
                     text-decoration: none;
+                    width: 100%;
                 }
 
                 .sef-item-card .sef-img-wrapper {
@@ -866,7 +695,7 @@ get_header();
             slidesPerView: 4, // Default: 4 slides visible
             spaceBetween: 10, // Space between slides in px
             breakpoints: {
-                1024:{
+                1024: {
                     slidesPerView: 4,
                 },
                 // When the screen width is 768px or less (for tablets and mobile)

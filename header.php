@@ -139,8 +139,8 @@
                 <img src="<?php echo get_template_directory_uri() . '/assets/images/home/logo.svg' ?>" alt="">
             </div>
             <nav class="items-parent">
-                <a class="item" href="#">Home</a>
-                <a class="item" href="#">Menu</a>
+                <a class="item" href="/">Home</a>
+                <a class="item" href="<?php echo site_url();?>/menu-items">Menu</a>
                 <a class="item" href="#">About</a>
                 <a class="item" href="#">Contact</a>
             </nav>

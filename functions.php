@@ -1,6 +1,7 @@
 <?php
 // Theme setup function: Adds theme features and registers menus.
-function srs_e_food_theme_setup() {
+function srs_e_food_theme_setup()
+{
     add_theme_support('title-tag'); // Enables dynamic title tags.
     add_theme_support('post-thumbnails'); // Enables featured images.
     add_theme_support('custom-logo'); // Enables custom logo support.
@@ -13,7 +14,8 @@ function srs_e_food_theme_setup() {
 add_action('after_setup_theme', 'srs_e_food_theme_setup');
 
 // Enqueue styles and scripts.
-function enqueue_custom_fonts() {
+function enqueue_custom_fonts()
+{
     // Enqueue Google Fonts
     wp_enqueue_style(
         'custom-google-fonts', // Handle for the stylesheet
@@ -24,7 +26,8 @@ function enqueue_custom_fonts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
 
-function srs_e_food_enqueue_scripts() {
+function srs_e_food_enqueue_scripts()
+{
     // Enqueue styles.
     wp_enqueue_style(
         'main-style',
@@ -32,6 +35,14 @@ function srs_e_food_enqueue_scripts() {
         array(),
         filemtime(get_template_directory() . '/style.css') // Uses file modification time for cache busting.
     );
+    // Enqueue styles.
+    wp_enqueue_style(
+        'original-style', // Handle for the stylesheet.
+        get_template_directory_uri() . '/assets/css/style.css', // Path to the CSS file.
+        array(), // Dependencies (empty here).
+        filemtime(get_template_directory() . '/assets/css/style.css') // Cache busting.
+    );
+
 
     // Enqueue JavaScript.
     wp_enqueue_script(
@@ -48,7 +59,11 @@ add_action('wp_enqueue_scripts', 'srs_e_food_enqueue_scripts');
 if (file_exists(get_template_directory() . '/inc/custom-post-types.php')) {
     require_once get_template_directory() . '/inc/custom-post-types.php';
 }
-function enqueue_swiper_assets() {
+if (file_exists(get_template_directory() . '/inc/slider.php')) {
+    require_once get_template_directory() . '/inc/slider.php';
+}
+function enqueue_swiper_assets()
+{
     // Enqueue Swiper CSS
     wp_enqueue_style(
         'swiper-css', // Handle name
@@ -67,4 +82,3 @@ function enqueue_swiper_assets() {
     );
 }
 add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
-
