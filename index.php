@@ -863,15 +863,25 @@ get_header();
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-            // pagination: {
-            //     el: '.swiper-pagination',
-            //     clickable: true,
-            // },
-            slidesPerView: 4, // Number of slides visible at a time
+            slidesPerView: 4, // Default: 4 slides visible
             spaceBetween: 10, // Space between slides in px
+            breakpoints: {
+                1024:{
+                    slidesPerView: 4,
+                },
+                // When the screen width is 768px or less (for tablets and mobile)
+                767: {
+                    slidesPerView: 2, // Show 2 slides
+                },
+                // When the screen width is 480px or less (for mobile)
+                0: {
+                    slidesPerView: 1, // Show 1 slide
+                },
+            },
         });
     });
 </script>
+
 <!-- Menu Item Slider ends -->
 
 
@@ -969,6 +979,69 @@ get_header();
         .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience {
             right: 0;
         }
+
+        .sef-like-today .sef-heading-area .left-area h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .sef-like-today {
+            padding: 60px 10px;
+        }
+
+        .sef-like-today .sef-heading-area .left-area p {
+            font-size: 10px;
+        }
+
+        .primary-btn {
+            font-size: 12px;
+            padding: 0 8px;
+        }
+
+        .sef-like-today .sef-heading-area .left-area {
+            max-width: 70%;
+        }
+
+        .sef-like-today .sef-menu-area {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .sef-like-today .sef-menu-area .menu-item-box {
+            padding: 15px;
+            gap: 15px;
+        }
+
+        .sef-like-today .sef-menu-area .menu-item-box .item-text h4 {
+            font-size: 16px;
+        }
+
+        .sef-like-today .sef-menu-area .menu-item-box .item-text p {
+            font-size: 10px;
+        }
+
+        .sef-like-today .sef-menu-area .menu-item-box .img-wrapper {
+            max-width: 40px;
+        }
+
+        .sef-popular-dishes .sef-heading-area .left-area h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .sef-popular-dishes {
+            padding: 60px 10px;
+        }
+
+        .sef-popular-dishes .sef-heading-area .left-area p {
+            font-size: 10px;
+        }
+
+        .sef-popular-dishes .sef-heading-area .left-area {
+            max-width: 70%;
+        }
+
     }
 </style>
 

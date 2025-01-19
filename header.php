@@ -8,5 +8,9 @@
 </head>
 <body <?php body_class(); ?>> <!-- Adds dynamic body classes -->
     <header class="srs-header">
-        <!-- Header content goes here -->
+        <div class="sef-header-pr">
+            <div class="logo-wrapper">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/home/logo.svg'?>" alt="">
+            </div>
+        </div>
     </header>
