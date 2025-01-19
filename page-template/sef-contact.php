@@ -160,9 +160,10 @@ get_header();
 </section>
 
 <style>
-    .contact-information{
+    .contact-information {
         padding: 60px 0;
     }
+
     .contact-information .sef-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -238,7 +239,55 @@ get_header();
     </div>
 </section>
 
+<style>
+    @media (max-width: 767px) {
+        .sef-contact-pr .sef-container {
+            flex-direction: column;
+            text-align: center;
+        }
 
+        .sef-contact-pr .sef-container .menu {
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sef-contact-pr .sef-container .heading {
+            font-size: 32px;
+            margin-bottom: 15px;
+            letter-spacing: normal;
+        }
+
+        .sef-contact-pr .sef-container .description {
+            font-size: 12px;
+        }
+
+        .sef-contact-pr .sef-container .menu-box {
+            margin: auto;
+            height: 35px;
+            justify-content: center;
+        }
+
+        .sef-contact-pr .sef-container .menu-box span {
+            font-size: 12px;
+        }
+
+        .sef-contact-pr .sef-container .text-area {
+            max-width: 100%
+        }
+
+        .sef-contact-pr .sef-container .form-area {
+            max-width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .sef-contact-pr .sef-container .form-area .form-wrapper{
+            padding: 10px;
+        }
+        .contact-information .sef-container {
+            flex-direction: column;
+        }
+    }
+</style>
 <?php
 
 
