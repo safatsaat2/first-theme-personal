@@ -349,7 +349,61 @@ get_header();
         </div>
     </div>
 </section>
+<style>
+    @media (max-width: 1024px) {
+        .tab-section .sef-tab-container .menu-items-pr {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+    }
 
+    @media (max-width:767px) {
+        .sef-hero-menu {
+            padding: 30px 0;
+        }
+
+        .sef-hero-menu .sef-container .menu {
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+
+        .sef-hero-menu .sef-container .heading {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .sef-hero-menu .sef-container .description {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .sef-hero-menu .sef-container .menu-box {
+            height: 35px;
+        }
+
+        .sef-hero-menu .sef-container .menu-box span {
+            font-size: 12px;
+        }
+
+        .tab-section {
+            padding: 30px 10px;
+        }
+
+        .tab-button {
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+
+        .tab-content {
+            top: 15px;
+            padding: 20px 0;
+        }
+
+        .tab-section .sef-tab-container .menu-items-pr {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+</style>
 
 <script>
     function openTab(evt, tabId) {
