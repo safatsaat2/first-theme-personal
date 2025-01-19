@@ -874,5 +874,103 @@ get_header();
 </script>
 <!-- Menu Item Slider ends -->
 
+
+<style>
+    @media (max-width: 767px) {
+        .sef-hero-section .sef-container {
+            flex-direction: column-reverse;
+
+        }
+
+        .sef-hero-section .sef-container>div {
+            width: 100%;
+        }
+
+        .sef-container .left-section .heading {
+            font-size: 32px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .sef-container .left-section .sub-heading {
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .sef-container .left-section .button-pr {
+            justify-content: center;
+        }
+
+
+
+        .sef-ex-section .sef-container {
+            flex-direction: column-reverse;
+        }
+
+        .sef-ex-section .sef-container .left-section {
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .sef-ex-section .sef-container .right-section {
+            max-width: 100%;
+        }
+
+        .sef-ex-section .sef-container .right-section .heading {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sef-ex-section .sef-container .right-section .sef-features {
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .sef-ex-section .sef-container .right-section .sef-features .features-item .number {
+            font-size: 24px;
+            min-width: 40px;
+            margin-right: 15px;
+        }
+
+        .sef-ex-section .sef-container .right-section .sef-features .features-item .feature-details {
+            gap: 10px;
+        }
+
+        .sef-ex-section .sef-container .right-section .sef-features .features-item .feature-details h6 {
+            font-size: 16px;
+        }
+
+        .sef-ex-section .sef-container .right-section .sef-features .features-item .feature-details p {
+            font-size: 10px;
+        }
+
+        .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience .number {
+            font-size: 32px;
+        }
+
+        .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience div {
+            padding: 10px;
+        }
+
+        .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience {
+            padding: 15px;
+        }
+
+        .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience .year {
+            font-size: 11px;
+        }
+
+        .sef-ex-section .sef-container .left-section .pr-com-ele .img-parent {
+            width: 100%;
+        }
+
+        .sef-ex-section .sef-container .left-section .pr-com-ele .sef-experience {
+            right: 0;
+        }
+    }
+</style>
+
 <?php
 get_footer();
