@@ -484,11 +484,12 @@ get_header();
 <!-- Like Today Section ends -->
 
 <style>
-    .sef-popular-dishes .sef-container{
+    .sef-popular-dishes .sef-container {
         max-width: 1200px;
         margin: 0 auto;
         overflow: hidden;
     }
+
     .sef-popular-dishes .sef-heading-area {
         display: flex;
         align-items: center;
@@ -514,6 +515,7 @@ get_header();
         font-weight: 500;
         max-width: 350px;
     }
+
     .swiper-container {
         width: 100%;
         height: 100%;
@@ -526,7 +528,6 @@ get_header();
         text-align: center;
         height: 400px;
     }
-
 </style>
 <div class="sef-popular-dishes">
     <div class="sef-container">
@@ -542,28 +543,151 @@ get_header();
         </div>
         <div class="sef-popular-slider">
             <!-- Menu Item Slider starts -->
-            <div class="swiper-container sef-slider-parent">
+            <!-- <div class="swiper-container sef-slider-parent">
                 <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
+                    
                     <div class="swiper-slide">
                         <p>Slide 1 Caption</p>
                     </div>
-                    <!-- Slide 2 -->
+                    
                     <div class="swiper-slide">
                         <p>Slide 2 Caption</p>
                     </div>
-                    <!-- Slide 3 -->
+                    
                     <div class="swiper-slide">
                         <p>Slide 3 Caption</p>
                     </div>
                 </div>
 
-                <!-- Navigation Buttons -->
+                
                 <div class="swiper-button-next">ok</div>
                 <div class="swiper-button-prev">ok</div>
 
-                <!-- Pagination Dots -->
+                
                 <div class="swiper-pagination"></div>
+            </div> -->
+            <style>
+                .sef-item-card {
+                    max-width: 270px;
+                    margin: 0 auto;
+                    display: block;
+                    text-decoration: none;
+                }
+
+                .sef-item-card .sef-img-wrapper {
+                    width: 100%;
+                    height: 240px;
+                }
+
+                .sef-item-card .sef-img-wrapper img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .sef-item-card .sef-text-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+                    padding-left: 15px;
+                    background-color: #f2f3f5;
+                }
+
+                .sef-item-card .sef-text-wrapper h3 {
+                    width: calc(100% - 90px);
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                    font-family: "Rubik", sans-serif;
+                    font-size: 16px;
+                    letter-spacing: 0;
+                    line-height: 120%;
+                    color: #231e41;
+                }
+
+                .sef-item-card .sef-text-wrapper p {
+                    width: 60px;
+                    height: 60px;
+                    font-weight: 500;
+                    background-color: #f5c332;
+                    color: #231e41;
+                    font-size: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: "Rubik", sans-serif;
+                }
+
+                .sef-item-card .sef-text-wrapper p span {
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+
+                .sef-item-card .sef-content-wrapper {
+
+                }
+
+                .sef-item-card .sef-content-wrapper p {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    font-family: "Rubik", sans-serif;
+                    font-size: 15px;
+                    letter-spacing: 0;
+                    line-height: 120%;
+                    color: #6f6f87;
+                    margin-bottom: 15px;
+                }
+
+                .sef-item-card .sef-content-wrapper .btn-rating-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .sef-item-card .sef-content-wrapper .btn-rating-wrapper div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .sef-item-card .sef-content-wrapper .btn-rating-wrapper div svg {}
+
+                .sef-item-card .sef-content-wrapper .btn-rating-wrapper div span {
+                    font-family: "Rubik", sans-serif;
+                    font-size: 12px;
+                    color: #6f6f87;
+                }
+
+                .sef-item-card .sef-content-wrapper .btn-rating-wrapper .primary-btn {
+                    height: 35px;
+                }
+            </style>
+            <div href="#" class="sef-item-card">
+                <div class="sef-img-wrapper">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/home/food-img.jpg'; ?>" alt="item">
+                </div>
+                <div class="sef-text-wrapper">
+                    <h3>CHevrefrit au miel</h3>
+                    <p><span>$</span>15</p>
+                </div>
+                <div class="sef-content-wrapper">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolore explicabo molestias doloremque asperiores soluta ratione repellat</p>
+                    <div class="btn-rating-wrapper">
+                        <div>
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.64062 13.125L4.65625 8.73438L1.25 5.78125L5.75 5.39062L7.5 1.25L9.25 5.39062L13.75 5.78125L10.3437 8.73438L11.3594 13.125L7.5 10.7969L3.64062 13.125Z" fill="#FFB147" />
+                            </svg>
+                            <span>(4.6 Star)</span>
+                        </div>
+                        <a href="#" class="primary-btn">order now</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
