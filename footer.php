@@ -60,6 +60,47 @@
         </div>
     </div>
 </footer>
+<style>
+    footer{
+        padding: 20px 0;
+    }
+    .sef-footer-container{
+        padding: 0 10px;
+        max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    }
+    .sef-footer-container .logo-wrapper img{
+        max-width: 200px;
+        object-fit: cover;
+    }
+    .sef-footer-container .social-items-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .sef-footer-container .social-items-wrapper{
+        list-style: none;
+    }
+    .sef-footer-container .sef-copyright-section{
+    line-height: 100%;
+    font-size: 16px;
+    font-family: "Rubik", sans-serif;
+    color: #6f6f87;
+    text-align: right;
+    }
+    @media (max-width:767px){
+        .sef-footer-container{
+            justify-content: center;
+            gap: 30px;
+        }
+    }
+</style>
 
 <?php wp_footer(); ?>
 </body>
