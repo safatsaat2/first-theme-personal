@@ -141,7 +141,7 @@
             <nav class="items-parent">
                 <a class="item" href="/">Home</a>
                 <a class="item" href="<?php echo site_url();?>/menu-items">Menu</a>
-                <a class="item" href="#">About</a>
+                <a class="item" href="<?php echo site_url();?>/about">About</a>
                 <a class="item" href="<?php echo site_url();?>/contact">Contact</a>
             </nav>
             <div class="add-to-list">

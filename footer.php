@@ -1,7 +1,7 @@
 <footer>
-    <!-- Footer content goes here -->
+    
 </footer>
 
-<?php wp_footer(); ?> <!-- This is essential for loading footer scripts and plugins -->
+<?php wp_footer(); ?> 
 </body>
 </html>
