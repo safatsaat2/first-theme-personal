@@ -329,7 +329,10 @@ get_header();
                                                         </svg>
                                                         <span>(<?php echo get_post_meta(get_the_ID(), '_menu_item_rating', true); ?> Star)</span>
                                                     </div>
-                                                    <a href="#" class="primary-btn order-now">order now</a>
+                                                    <a href="#" class="primary-btn order-now" data-item-id="<?php echo get_the_ID(); ?>"
+                                                        data-item-name="<?php echo esc_attr(get_the_title()); ?>"
+                                                        data-item-price="<?php echo esc_attr(get_post_meta(get_the_ID(), '_menu_item_price', true)); ?>"
+                                                        data-item-image="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full')); ?>">order now</a>
                                                 </div>
                                             </div>
                                         </div>

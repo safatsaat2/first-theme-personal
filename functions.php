@@ -52,6 +52,13 @@ function srs_e_food_enqueue_scripts()
         filemtime(get_template_directory() . '/assets/js/main.js'), // Uses file modification time for cache busting.
         true // Loads the script in the footer.
     );
+    wp_enqueue_script(
+        'allscript-js',
+        get_template_directory_uri() . '/assets/js/allscript.js',
+        array('jquery'),
+        filemtime(get_template_directory() . '/assets/js/allscript.js'), // Uses file modification time for cache busting.
+        true // Loads the script in the footer.
+    );
 }
 add_action('wp_enqueue_scripts', 'srs_e_food_enqueue_scripts');
 
