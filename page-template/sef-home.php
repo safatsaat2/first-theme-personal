@@ -713,40 +713,109 @@ get_header();
             },
         });
     });
-    document.addEventListener('DOMContentLoaded', function () {
-    // Add event listener to all "Order Now" buttons
-    document.querySelectorAll('.order-now').forEach(function (button) {
-        button.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent default link behavior
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the container for menu items
+        const menuItemsContainer = document.querySelector('.sef-menu-items');
+        // Function to update the quantity in the <span>
+        function updateQuantity() {
+            // Retrieve items from localStorage
+            const itemList = JSON.parse(localStorage.getItem('itemList')) || [];
 
-            // Get item details from data attributes
-            const itemId = button.getAttribute('data-item-id');
-            const itemName = button.getAttribute('data-item-name');
-            const itemPrice = button.getAttribute('data-item-price');
-            const itemImage = button.getAttribute('data-item-image'); // Get image URL
+            // Get the <span> element to display the quantity
+            const quantitySpan = document.querySelector('.add-to-list span');
 
-            // Create an item object
-            const item = {
-                id: itemId,
-                name: itemName,
-                price: itemPrice,
-                image: itemImage, // Include image URL
-            };
+            // Update the quantity
+            quantitySpan.textContent = itemList.length;
+        }
 
-            // Retrieve existing items from localStorage or initialize an empty array
-            let itemList = JSON.parse(localStorage.getItem('itemList')) || [];
+        // Function to add items to the menu
+        function addItemsToMenu() {
+            // Retrieve items from localStorage
+            const itemList = JSON.parse(localStorage.getItem('itemList')) || [];
 
-            // Add the new item to the list
-            itemList.push(item);
 
-            // Save the updated list back to localStorage
-            localStorage.setItem('itemList', JSON.stringify(itemList));
 
-            // Optional: Notify the user that the item has been added
-            alert('Item added to your order!');
+            // Clear the container before adding items (optional, to avoid duplicates)
+            menuItemsContainer.innerHTML = '';
+
+            // Loop through each item and create a new element
+            itemList.forEach(function(item) {
+                // Create the item element
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('sef-item');
+
+                // Add the image
+                const itemImage = document.createElement('img');
+                itemImage.src = item.image; // Use the image URL from localStorage
+                itemImage.alt = item.name;
+
+                // Add the item name
+                const itemName = document.createElement('span');
+                itemName.classList.add('item-name');
+                itemName.textContent = item.name;
+
+                // Add the item price
+                const itemPrice = document.createElement('span');
+                itemPrice.classList.add('item-price');
+                itemPrice.textContent = `$${item.price}`;
+
+                // Append elements to the item container
+                itemElement.appendChild(itemImage);
+                itemElement.appendChild(itemName);
+                itemElement.appendChild(itemPrice);
+
+                // Append the item to the menu container
+                menuItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        // Add event listener to all "Order Now" buttons
+        document.querySelectorAll('.order-now').forEach(function(button) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+
+                // Get item details from data attributes
+                const itemId = button.getAttribute('data-item-id');
+                const itemName = button.getAttribute('data-item-name');
+                const itemPrice = button.getAttribute('data-item-price');
+                const itemImage = button.getAttribute('data-item-image'); // Get image URL
+
+                // Create an item object
+                const item = {
+                    id: itemId,
+                    name: itemName,
+                    price: itemPrice,
+                    image: itemImage, // Include image URL
+                };
+
+                // Retrieve existing items from localStorage or initialize an empty array
+                let itemList = JSON.parse(localStorage.getItem('itemList')) || [];
+
+                // Add the new item to the list
+                itemList.push(item);
+
+                // Save the updated list back to localStorage
+                localStorage.setItem('itemList', JSON.stringify(itemList));
+
+                // Update the menu items display
+                addItemsToMenu();
+
+                // Update the quantity in the <span>
+                updateQuantity();
+
+                menuItemsContainer.classList.add('open');
+
+                // Remove the "open" class after a delay (e.g., 2 seconds)
+                setTimeout(function() {
+                    menuItemsContainer.classList.remove('open');
+                }, 2000); // Adjust the delay as needed
+            });
         });
+
+        // Load existing items from localStorage when the page loads
+        addItemsToMenu();
+        updateQuantity(); // Update the quantity on page load
     });
-});
 </script>
 
 <!-- Menu Item Slider ends -->

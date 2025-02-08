@@ -9,7 +9,15 @@
     <style>
         /* Base styles for desktop and larger screens */
         .srs-header {
+            top: 0;
             padding: 0;
+            position: sticky;
+            background-color: transparent;
+            background: transparent;
+            backdrop-filter: blur(5px);
+            width: 100%;
+            z-index: 99;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .05);
         }
 
         .srs-header .sef-header-pr {
@@ -68,9 +76,9 @@
         }
 
         @media (max-width:767px) {
-            .srs-header {
+            /* .srs-header {
                 position: relative;
-            }
+            } */
 
             .srs-header .sef-header-pr .items-parent {
                 display: none;
@@ -129,6 +137,64 @@
                 display: none;
             }
         }
+
+        .sef-menu-items {
+            position: absolute;
+            right: 0;
+            width: 400px;
+            background: #fff;
+            top: 100%;
+            padding: 20px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .05);
+            transform: translateX(200%);
+            transition: all .5s cubic-bezier(.645, .045, .355, 1);
+        }
+
+        .sef-menu-items.open {
+            transform: translateX(0);
+        }
+
+        .sef-menu-items .sef-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f9fafc;
+        }
+
+        .sef-menu-items .sef-item .item-name {
+            width: calc(100% - 90px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            font-family: "Rubik", sans-serif;
+            font-size: 16px;
+            letter-spacing: 0;
+            line-height: 120%;
+            color: #231e41;
+        }
+
+        .sef-menu-items .sef-item .item-price {
+            width: 60px;
+            height: 60px;
+            font-weight: 500;
+            background-color: #f5c332;
+            color: #231e41;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Rubik", sans-serif;
+        }
+
+        .sef-menu-items .sef-item img {
+            max-width: 70px;
+        }
+
+        .srs-header .sef-header-pr .add-to-list {
+            position: relative;
+        }
     </style>
 </head>
 
@@ -140,9 +206,9 @@
             </div>
             <nav class="items-parent">
                 <a class="item" href="/">Home</a>
-                <a class="item" href="<?php echo site_url();?>/menu-items">Menu</a>
-                <a class="item" href="<?php echo site_url();?>/about">About</a>
-                <a class="item" href="<?php echo site_url();?>/contact">Contact</a>
+                <a class="item" href="<?php echo site_url(); ?>/menu-items">Menu</a>
+                <a class="item" href="<?php echo site_url(); ?>/about">About</a>
+                <a class="item" href="<?php echo site_url(); ?>/contact">Contact</a>
             </nav>
             <div class="add-to-list">
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,7 +217,15 @@
                 <span>
                     0
                 </span>
-                
+                <div class="sef-menu-items">
+                    <div class="sef-item">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/images/home/logo.svg' ?>" alt="item">
+                        <span class="item-name">
+                            tarka masal
+                        </span>
+                        <span class="item-price">$20</span>
+                    </div>
+                </div>
             </div>
             <div class="hamBurg">
                 <svg class="ham" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -180,6 +254,12 @@
                 // Toggle the visibility of the hamburger and cross icons
                 hamIcon.classList.toggle('hide');
                 crossIcon.classList.toggle('hide');
+            });
+            const addToList = document.querySelector(".add-to-list");
+            const menuItems2 = document.querySelector(".sef-menu-items");
+
+            addToList.addEventListener("click", function() {
+                menuItems2.classList.toggle("open");
             });
         });
     </script>
