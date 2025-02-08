@@ -329,7 +329,7 @@ get_header();
                                                         </svg>
                                                         <span>(<?php echo get_post_meta(get_the_ID(), '_menu_item_rating', true); ?> Star)</span>
                                                     </div>
-                                                    <a href="tel:+8801518758802" class="primary-btn">order now</a>
+                                                    <a href="#" class="primary-btn order-now">order now</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -148,8 +148,18 @@
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .05);
             transform: translateX(200%);
             transition: all .5s cubic-bezier(.645, .045, .355, 1);
-        }
 
+        }
+        .sef-items-wrapper{
+            max-height: 340px;
+            overflow-y: scroll;
+        }
+        .sef-menu-items .sef-items-footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
         .sef-menu-items.open {
             transform: translateX(0);
         }
@@ -159,6 +169,7 @@
             align-items: center;
             justify-content: space-between;
             background: #f9fafc;
+            margin-bottom: 20px;
         }
 
         .sef-menu-items .sef-item .item-name {
@@ -189,11 +200,14 @@
         }
 
         .sef-menu-items .sef-item img {
-            max-width: 70px;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
         }
 
         .srs-header .sef-header-pr .add-to-list {
             position: relative;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -218,12 +232,13 @@
                     0
                 </span>
                 <div class="sef-menu-items">
-                    <div class="sef-item">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/images/home/logo.svg' ?>" alt="item">
-                        <span class="item-name">
-                            tarka masal
-                        </span>
-                        <span class="item-price">$20</span>
+                    <div class="sef-items-wrapper">
+
+                    </div>
+
+                    <div class="sef-items-footer">
+                        <a class="secondary-btn" href="tel:01518758802">Call For Order</a>
+                        <a href="#" class="primary-btn">Clear List</a>
                     </div>
                 </div>
             </div>
@@ -238,28 +253,3 @@
             </div>
         </div>
     </header>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get references to the elements
-            const menuToggle = document.querySelector('.hamBurg');
-            const menuItems = document.querySelector('.srs-header .sef-header-pr .items-parent');
-            const hamIcon = document.querySelector('.hamBurg .ham');
-            const crossIcon = document.querySelector('.hamBurg .cross');
-
-            // Add event listener for toggling the menu
-            menuToggle.addEventListener('click', function() {
-                // Toggle the 'show' class to display the menu
-                menuItems.classList.toggle('show');
-
-                // Toggle the visibility of the hamburger and cross icons
-                hamIcon.classList.toggle('hide');
-                crossIcon.classList.toggle('hide');
-            });
-            const addToList = document.querySelector(".add-to-list");
-            const menuItems2 = document.querySelector(".sef-menu-items");
-
-            addToList.addEventListener("click", function() {
-                menuItems2.classList.toggle("open");
-            });
-        });
-    </script>
