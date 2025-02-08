@@ -45,6 +45,7 @@ function custom_menu_slider_shortcode($atts)
         while ($query->have_posts()) {
             $query->the_post();
 
+            $post_id = get_the_ID(); // Get the post ID
             $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
             $title = get_the_title();
             $price = get_post_meta(get_the_ID(), '_menu_item_price', true);
@@ -70,7 +71,11 @@ function custom_menu_slider_shortcode($atts)
                                     </svg>
                                     <span>('. esc_html($rating)  . ' Star)</span>
                                 </div>
-                                <a href="#" class="primary-btn">order now</a>
+                                <a href="#" class="primary-btn order-now" 
+                                   data-item-id="' . esc_attr($post_id) . '" 
+                                   data-item-name="' . esc_attr($title) . '" 
+                                   data-item-price="' . esc_attr($price) . '"
+                                   data-item-image="' . esc_url($featured_image_url) . '">Order Now</a>
                             </div>
                         </div>
                     </div>

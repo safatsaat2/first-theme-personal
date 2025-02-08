@@ -127,8 +127,8 @@ get_header();
                 This is a sub wording for demo
             </p>
             <div class="button-pr">
-                <a href="#" class="primary-btn">Our Menu</a>
-                <a href="#" class="secondary-btn">About us</a>
+                <a href="<?php echo site_url(); ?>/menu-items" class="primary-btn">Our Menu</a>
+                <a href="<?php echo site_url(); ?>/about" class="secondary-btn">About us</a>
             </div>
         </div>
         <div class="right-section">
@@ -713,6 +713,40 @@ get_header();
             },
         });
     });
+    document.addEventListener('DOMContentLoaded', function () {
+    // Add event listener to all "Order Now" buttons
+    document.querySelectorAll('.order-now').forEach(function (button) {
+        button.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Get item details from data attributes
+            const itemId = button.getAttribute('data-item-id');
+            const itemName = button.getAttribute('data-item-name');
+            const itemPrice = button.getAttribute('data-item-price');
+            const itemImage = button.getAttribute('data-item-image'); // Get image URL
+
+            // Create an item object
+            const item = {
+                id: itemId,
+                name: itemName,
+                price: itemPrice,
+                image: itemImage, // Include image URL
+            };
+
+            // Retrieve existing items from localStorage or initialize an empty array
+            let itemList = JSON.parse(localStorage.getItem('itemList')) || [];
+
+            // Add the new item to the list
+            itemList.push(item);
+
+            // Save the updated list back to localStorage
+            localStorage.setItem('itemList', JSON.stringify(itemList));
+
+            // Optional: Notify the user that the item has been added
+            alert('Item added to your order!');
+        });
+    });
+});
 </script>
 
 <!-- Menu Item Slider ends -->
